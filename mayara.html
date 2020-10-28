@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form onsubmit="access(event)">
+            <h1>Login</h1>
+            <input type="text" class="input" id="user" name="user" placeholder="Usuário" />
+            <input type="password" class="input" name="password" placeholder="Senha" />
+            <!--Submit para validação dos dados de login-->
+            <input class="button" type="submit" value="acessar"/>
+        </form>
+    </body>
+    <script>
+        function access(e) {
+            console.log(e)
+            e.preventDefault();
+            var email = document.getElementById("user");
+            console.log(email.value)
+            var senha = document.getElementsByName("password");
+            if (email.value == 'cocreary') {
+                window.alert ('Dados corretos!');
+            } else {
+                window.alert ('Invalido');
+            }
+
+        }
+    </script>
+</html>

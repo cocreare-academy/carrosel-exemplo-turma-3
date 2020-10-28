@@ -13,8 +13,8 @@
        <p class="aviso" style="word-wrap: break-word;">
             Texto avisando que o usario...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel consectetur libero, eget pharetra nunc. Suspendisse enim nisl, mattis a eleifend at, ultrices in enim. Sed in dui mattis turpis ultrices pulvinar. Morbi quis viverra lectus. Fusce varius scelerisque eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam semper, magna eget feugiat feugiat, neque ex bibendum felis, vitae mattis diam nisl et ligula. Etiam luctus ante tempor erat malesuada rhoncus. Ut condimentum tortor vel diam luctus, et maximus dui pretium. Cras convallis enim at ullamcorper maximus. Curabitur viverra urna metus. Mauris laoreet gravida arcu id ultrices.
        </p>
-       <button onclick="carregarImagens(--page)"><</button>
-       <button onclick="carregarImagens(++page)">></button>
+       <button id="voltarBtn" onclick="carregarImagens(--page)"><</button>
+       <button id="avancarBtn" onclick="carregarImagens(++page)">></button>
        <!-- <script src="./carrosel.js"></script> -->
        <script>
            var imagens = [
@@ -22,7 +22,11 @@
 
             var page=0
             function carregarImagens(pageParam) {
+                document.querySelector('#voltarBtn').style['background-color'] = 'initial';
+                document.querySelector('#avancarBtn').style['background-color'] = 'initial';
+                
                 if (pageParam <= 1) {
+                    document.querySelector('#voltarBtn').style['background-color'] = 'red';
                     page=1
                     pageParam = 1
                 }
@@ -34,6 +38,7 @@
                 if (!imagens[pageEnd-5]) {
                     morePages = false
                     page--;
+                    document.querySelector('#avancarBtn').style['background-color'] = 'red';
                     return
                 }
 
