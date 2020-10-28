@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./meustyle.css">
+    </head>
+    <body>
+       <div class="imagem expl" style="display: none;"></div>
+       <div class="carrosel-row">
+        <div class="carrosel-line" style="flex-direction: row;">
+    
+        </div>
+       </div> 
+       <p class="aviso" style="word-wrap: break-word;">
+            Texto avisando que o usario...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel consectetur libero, eget pharetra nunc. Suspendisse enim nisl, mattis a eleifend at, ultrices in enim. Sed in dui mattis turpis ultrices pulvinar. Morbi quis viverra lectus. Fusce varius scelerisque eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam semper, magna eget feugiat feugiat, neque ex bibendum felis, vitae mattis diam nisl et ligula. Etiam luctus ante tempor erat malesuada rhoncus. Ut condimentum tortor vel diam luctus, et maximus dui pretium. Cras convallis enim at ullamcorper maximus. Curabitur viverra urna metus. Mauris laoreet gravida arcu id ultrices.
+       </p>
+       <button onclick="carregarImagens(--page)"><</button>
+       <button onclick="carregarImagens(++page)">></button>
+       <!-- <script src="./carrosel.js"></script> -->
+       <script>
+           var imagens = [
+            ]
+
+            var page=0
+            function carregarImagens(pageParam) {
+                if (pageParam <= 1) {
+                    page=1
+                    pageParam = 1
+                }
+
+                
+                pageEnd = pageParam*5
+                var html = ""
+                
+                if (!imagens[pageEnd-5]) {
+                    morePages = false
+                    page--;
+                    return
+                }
+
+                document.querySelector('.carrosel-line').innerHTML = ""
+                for (i=pageEnd-5; i<pageEnd; i++) {
+                    
+                    if (i >= imagens.length) {
+                        // botao = document.querySelector('#loadMore')
+                        // botao.parentNode.removeChild(botao)
+                        if (!imagens[pageParam]) {
+                            morePages = false
+                        }
+                        break;
+                    }
+
+                    var img = document.querySelector('.expl').cloneNode(true)
+                    img.style["background-image"]= "url("+imagens[i]+")";
+                    img.style.display="block";
+                    document.querySelector('.carrosel-line').appendChild(img)
+                }
+                console.log(page)
+                
+            }
+
+
+            fetch('http://instagram.com/mrbean.clip/?__a=1')
+            .then(response => response.json())
+            .then(data => {
+                for (let instagramUrl of data.graphql.user.edge_owner_to_timeline_media.edges) {
+                    imagens.push(instagramUrl.node.display_url)
+                }
+
+                carregarImagens(page)
+                
+                console.log(imagens)
+            })
+            
+       </script>
+    </body>
+</html>

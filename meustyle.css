@@ -1,0 +1,126 @@
+.content form {
+    width: 50%;
+    height: 50vh;
+}
+.login-form {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(red, #df8282);
+}
+
+
+.login-form input {
+    margin-top: 10px;
+}
+
+.login-form input[type="submit"] {
+    margin-top: 30px;
+}
+
+@media screen and (max-width:770px) {
+    /* .content {
+        background: linear-gradient(green, #82dfb1);
+    } */
+    .content form {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .login-form input {
+        width: 100%;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+
+    .login-form input[type="submit"] {
+       width: 50%;
+    }
+}
+
+@media screen and (max-width:450px) {
+
+    .login-form input[type="submit"] {
+       width: 100%;
+    }
+}
+
+@media screen and (min-width:8000px) {
+    input {
+        font-size: 300px;
+    }
+    
+}
+
+.carrosel {
+    overflow-x: auto;
+    /* overflow-y: hidden; */
+    width: 100%;
+    min-height: 100px;
+    height: fit-content;
+}
+
+.carrosel-row {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    min-height: 100px;
+    height: fit-content;
+}
+
+
+.carrosel-line {
+   display: flex;
+   flex-direction: column;
+   width: fit-content;
+}
+
+.imagem {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    background-size: contain;
+    margin: 10px;
+}
+
+.aviso {
+    width: 50%;
+    margin: 0 auto;
+    height: 100px;
+    white-space: pre;
+}
+
+.login-form {
+    position: relative;
+    background: transparent;
+}
+
+input {
+    z-index: 2;
+}
+
+.background {
+    background-size: contain;
+    background-color: green;
+    /* background-image: url('https://veja.abril.com.br/wp-content/uploads/2018/01/economia-bom-dia-whatsapp.jpg'); */
+    position: absolute;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
